@@ -1,19 +1,15 @@
-import logo from './logo.svg';
 import './App.css';
-import { useState } from 'react';
+import Userform from './Userform';
 
 function App() {//controller
-  const [user, setUser] = useState({ //model =state
-    fname: 'John',
-    lastname: 'Carter'
-  });
+  return (
+    <div>
+      <Userform />
+      <p></p>
+      <Userform />
+      <Userform />
+    </div>
 
-  //logic 
-  return (//jsx
-    <span> //view
-      <input value={user.fname} onChange={(event)=> setUser({fname: event.target.value})}></input>
-      <input value={user.lastname}></input>
-    </span>
   )
 }
 
