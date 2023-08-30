@@ -6,6 +6,7 @@ function Userform() { //functional component
     firstname: 'John',
     lastname: 'Carter'
   });
+  const [users, setUsers] = useState([]);
   const updateValue = (event) => {
     setUser({ ...user, [event.target.name]: event.target.value });
   }
@@ -16,6 +17,9 @@ function Userform() { //functional component
       body: JSON.stringify(user)
     });
     promise.then(function (response) {//100-399
+      response.json().then((savedUser)=>{
+        setUsers([...users, savedUser]);
+      })
       console.log(response);
     });
     promise.catch(function (error) {//400-599
@@ -32,6 +36,15 @@ function Userform() { //functional component
       <input type='radio' name="gender" value='Female' onChange={updateValue} />Female
 
       <button onClick={save}>Save</button>
+      <table>
+        <thead><th>firstname</th></thead>
+        <tbody>
+          {users.map((user, index) => {
+            return <tr><td>{user.firstname}</td>
+            <td>{user.lastname}</td></tr>
+          })}
+        </tbody>
+      </table>
     </span>
   )
 }
