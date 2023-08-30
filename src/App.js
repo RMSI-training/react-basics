@@ -6,8 +6,7 @@ function App() {//controller
     <div>
       <Userform />
       <p></p>
-      <Userform />
-      <Userform />
+    
     </div>
 
   )
