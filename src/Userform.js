@@ -40,14 +40,18 @@ function Userform() { //functional component
   }
   //logic 
   return (//jsx
-    <span>
-      <input value={user.firstname} name='firstname' onChange={updateValue}></input>
-      <input value={user.lastname} name='lastname' onChange={updateValue}></input>
-      <input type='radio' name="gender" value='Male' onChange={updateValue} />Male
-      <input type='radio' name="gender" value='Female' onChange={updateValue} />Female
-      <button onClick={save}>Save</button>
-      <table>
-        <thead><th>firstname</th></thead>
+    <span >
+      <div class="form-group">
+        <input value={user.firstname} class="form-control" name='firstname' onChange={updateValue}></input>
+        <input value={user.lastname} class="form-control" name='lastname' onChange={updateValue}></input>
+        <input type='radio' name="gender" class="radio" value='Male' onChange={updateValue} />Male
+        <input type='radio' name="gender" class="radio" value='Female' onChange={updateValue} />Female
+      </div>
+      <button class='btn btn-primary' onClick={save}>Save</button>
+      <table class="table table-striped">
+        <thead><th>firstname</th>
+          <th>Last Name</th>
+          <th>Gender</th></thead>
         <tbody>
           {users.map((user, index) => {
             return <tr><td>{index}. {user.firstname}</td>
