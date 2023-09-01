@@ -1,6 +1,5 @@
 import { useState } from "react";
 
-
 function Userform() { //functional component
   const [user, setUser] = useState({ //model =state
     firstname: 'John',
@@ -13,12 +12,12 @@ function Userform() { //functional component
   const updateValue = (event) => {
     setUser({ ...user, [event.target.name]: event.target.value });
   }
-  useState(async function (params) {//constructor
+  useState(async function () {//constructor
     //get locations
-    const response = await fetch('http://localhost:3001/locations');
+    const response = await fetch(process.env.REACT_APP_URL+'locations');
     setLocations(await response.json());
     try {
-      const response = await fetch("http://localhost:3001/users");
+      const response = await fetch(process.env.REACT_APP_URL+"users");
       const users = await response.json();
       setUsers(users);
     } catch (error) {
@@ -27,8 +26,8 @@ function Userform() { //functional component
   })
   async function save() {
     try {
-      const response = await fetch("http://localhost:3001/users", {//ajax
-        method: 'POST',
+      const response = await fetch(process.env.REACT_APP_URL+"users", {//ajax
+        method: process.env.REACT_APP_METHOD,
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(user)
       });
@@ -46,7 +45,6 @@ function Userform() { //functional component
         <input value={user.lastname} className="form-control" name='lastname' onChange={updateValue}></input>
         <input type='radio' name="gender" className="radio" value='Male' onChange={updateValue} />Male
         <input type='radio' name="gender" className="radio" value='Female' onChange={updateValue} />Female
-
         <select name="location" onChange={updateValue}>
           {locations.map(location =>  <option  value={location}>{location}</option>)}
         </select>
