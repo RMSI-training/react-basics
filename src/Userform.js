@@ -10,30 +10,33 @@ function Userform() { //functional component
   const updateValue = (event) => {
     setUser({ ...user, [event.target.name]: event.target.value });
   }
-  useState(function (params) {//constructor
-    const promise = fetch("http://localhost:3001/users");
-    promise.then(function (response) {
-      response.json().then(function (users) {
-        setUsers(users);
-      })
-    })
-  })
-  function save() {
-    const promise = fetch("http://localhost:3001/users", {//ajax
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(user)
-    });
-    promise.then(function (response) {//100-399, success handler
-      response.json().then((savedUser) => {
-        setUsers([...users, savedUser]);
-      })
-      console.log(response);
-    });
-    promise.catch(function (error) {//400-599, error handler
+  useState(async function (params) {//constructor
+    // const promise =  fetch("http://localhost:3001/users");
+    // promise.then(function (response) {
+    //   response.json().then(function (users) {
+    //     setUsers(users);
+    //   })
+    // })
+    try {
+      const response = await fetch("http://localhost:3001/users");
+      const users = await response.json();
+      setUsers(users);
+    } catch (error) {
       console.log(error);
-    })
-    console.log(user);
+    }
+  })
+  async function save() {
+    try {
+      const response = await fetch("http://localhost:3001/users", {//ajax
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(user)
+      });
+      const savedUser = await response.json();
+      setUsers([...users, savedUser]);
+    } catch (error) {
+      console.log(error);
+    }
   }
   //logic 
   return (//jsx
