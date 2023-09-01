@@ -8,17 +8,15 @@ function Userform() { //functional component
     gender: 'Male',
     location: 'Brisbane'
   });
+  const [locations, setLocations] = useState([]);
   const [users, setUsers] = useState([]);
   const updateValue = (event) => {
     setUser({ ...user, [event.target.name]: event.target.value });
   }
   useState(async function (params) {//constructor
-    // const promise =  fetch("http://localhost:3001/users");
-    // promise.then(function (response) {
-    //   response.json().then(function (users) {
-    //     setUsers(users);
-    //   })
-    // })
+    //get locations
+    const response = await fetch('http://localhost:3001/locations');
+    setLocations(await response.json());
     try {
       const response = await fetch("http://localhost:3001/users");
       const users = await response.json();
@@ -50,9 +48,7 @@ function Userform() { //functional component
         <input type='radio' name="gender" className="radio" value='Female' onChange={updateValue} />Female
 
         <select name="location" onChange={updateValue}>
-          <option defaultChecked value='bangalore'>Bangalore</option>
-          <option value='Brisbane'>Brisbane</option>
-          <option value='Hydrabad'>Hydrabad</option>
+          {locations.map(location =>  <option  value={location}>{location}</option>)}
         </select>
       </div>
       <button className='btn btn-primary' onClick={save}>Save</button>

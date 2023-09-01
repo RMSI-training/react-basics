@@ -1,4 +1,9 @@
 {
+  "locations": [
+    "Bangalre",
+    "Brisbane",
+    "London"
+  ],
   "users": [
     {
       "firstname": "John",
@@ -185,6 +190,20 @@
       "location": "bangalore",
       "gender": "Male",
       "id": 35
+    },
+    {
+      "firstname": "John",
+      "lastname": "Carter",
+      "gender": "Male",
+      "location": "Brisbane",
+      "id": 36
+    },
+    {
+      "firstname": "John",
+      "lastname": "Carter",
+      "gender": "Male",
+      "location": "London",
+      "id": 37
     }
   ]
 }
