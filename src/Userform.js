@@ -4,7 +4,9 @@ import { useState } from "react";
 function Userform() { //functional component
   const [user, setUser] = useState({ //model =state
     firstname: 'John',
-    lastname: 'Carter'
+    lastname: 'Carter',
+    gender: 'Male',
+    location: 'Brisbane'
   });
   const [users, setUsers] = useState([]);
   const updateValue = (event) => {
@@ -41,14 +43,20 @@ function Userform() { //functional component
   //logic 
   return (//jsx
     <span >
-      <div class="form-group">
-        <input value={user.firstname} class="form-control" name='firstname' onChange={updateValue}></input>
-        <input value={user.lastname} class="form-control" name='lastname' onChange={updateValue}></input>
-        <input type='radio' name="gender" class="radio" value='Male' onChange={updateValue} />Male
-        <input type='radio' name="gender" class="radio" value='Female' onChange={updateValue} />Female
+      <div className="form-group">
+        <input value={user.firstname} className="form-control" name='firstname' onChange={updateValue}></input>
+        <input value={user.lastname} className="form-control" name='lastname' onChange={updateValue}></input>
+        <input type='radio' name="gender" className="radio" value='Male' onChange={updateValue} />Male
+        <input type='radio' name="gender" className="radio" value='Female' onChange={updateValue} />Female
+
+        <select name="location" onChange={updateValue}>
+          <option defaultChecked value='bangalore'>Bangalore</option>
+          <option value='Brisbane'>Brisbane</option>
+          <option value='Hydrabad'>Hydrabad</option>
+        </select>
       </div>
-      <button class='btn btn-primary' onClick={save}>Save</button>
-      <table class="table table-striped">
+      <button className='btn btn-primary' onClick={save}>Save</button>
+      <table className="table table-striped">
         <thead><th>firstname</th>
           <th>Last Name</th>
           <th>Gender</th></thead>
