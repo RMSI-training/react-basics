@@ -1,12 +1,12 @@
+import { Link } from 'react-router-dom';
 import './App.css';
 import Userform from './Userform';
 
 function App() {//controller
   return (
     <div>
-      <Userform />
-      <p></p>
-    
+      <Link to='/userform'>User Form</Link>
+      This is Home Page
     </div>
 
   )

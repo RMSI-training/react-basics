@@ -4,9 +4,11 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import Userform from './Userform';
 const router = createBrowserRouter([
-  {    path: "/", element: <div>Hello world!</div>  },
-  {    path: "/userform", element: <App/>  },
+  {    path: "/", element: <App/>  },
+  {    path: "/userform", element: <Userform/>  },
+
   
 ]);
 const root = ReactDOM.createRoot(document.getElementById('root'));// React element 

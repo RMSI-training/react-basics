@@ -10,21 +10,7 @@
       "lastname": "Carter",
       "gender": "Male",
       "location": "Brisbane",
-      "id": 1
-    },
-    {
-      "firstname": "John carteweefkdkmvmmskdkdkdkdkdkdkk",
-      "lastname": "Carter",
-      "gender": "Male",
-      "location": "Brisbane",
-      "id": 2
-    },
-    {
-      "firstname": "John carteweefkdkmvmmskdkdkdkdkdkdkk",
-      "lastname": "Carter",
-      "gender": "Male",
-      "location": "Brisbane",
-      "id": 3
+      "id": 4
     }
   ]
 }
