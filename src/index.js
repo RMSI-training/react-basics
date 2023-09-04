@@ -5,11 +5,10 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Userform from './Userform';
+import ErrorPage from './error-page';
 const router = createBrowserRouter([
-  {    path: "/", element: <App/>  },
-  {    path: "/userform", element: <Userform/>  },
-
-  
+  {    path: "/", element: <App/>, errorElement: <ErrorPage />,  },
+  {    path: "/userform", element: <Userform/>, errorElement: <ErrorPage />,  },
 ]);
 const root = ReactDOM.createRoot(document.getElementById('root'));// React element 
 root.render(
