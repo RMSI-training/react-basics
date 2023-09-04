@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Counter from "./Counter";
 
 function Userform() { //functional component
   const [user, setUser] = useState({ //model =state
@@ -49,17 +50,18 @@ function Userform() { //functional component
         <input type='radio' name="gender" className="radio" value='Male' onChange={updateValue} />Male
         <input type='radio' name="gender" className="radio" value='Female' onChange={updateValue} />Female
         <select name="location" onChange={updateValue}>
-          {locations.map(location => <option value={location}>{location}</option>)}
+          {locations.map(location => <option key={location} value={location}>{location}</option>)}
         </select>
       </div>
       <button className='btn btn-primary' onClick={save}>Save</button>
+      <Counter count={users.length} prop2={user.firstname}/>
       <table className="table table-striped">
         <thead><th>firstname</th>
           <th>Last Name</th>
           <th>Gender</th></thead>
         <tbody>
           {users.map((user, index) => {
-            return <tr><td>{index}. {user.firstname}</td>
+            return <tr key={user.id}><td>{index}. {user.firstname}</td>
               <td>{user.lastname}</td>
               <td>{user.gender}</td>
               <td><button className="btn btn-danger" onClick={() => deleteUser(user.id)}>X</button></td>
