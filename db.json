@@ -6,35 +6,15 @@
   ],
   "users": [
     {
-      "firstname": "John",
-      "lastname": "Carter",
-      "id": 1
-    },
-    {
       "firstname": "Pariwesh",
       "lastname": "Gupta",
       "id": 2
-    },
-    {
-      "firstname": "Pariwesh",
-      "lastname": "Gupta",
-      "age": 40,
-      "id": 3
-    },
-    {
-      "id": 4
     },
     {
       "firstname": "John",
       "lastname": "Carter",
       "gender": "Male",
       "id": 5
-    },
-    {
-      "firstname": "John",
-      "lastname": "Carter",
-      "gender": "Male",
-      "id": 6
     },
     {
       "firstname": "John",

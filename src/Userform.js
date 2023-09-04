@@ -14,19 +14,22 @@ function Userform() { //functional component
   }
   useState(async function () {//constructor
     //get locations
-    const response = await fetch(process.env.REACT_APP_URL+'locations');
+    const response = await fetch(process.env.REACT_APP_URL + 'locations');
     setLocations(await response.json());
+    getUsers();
+  })
+  async function getUsers() {
     try {
-      const response = await fetch(process.env.REACT_APP_URL+"users");
+      const response = await fetch(process.env.REACT_APP_URL + "users");
       const users = await response.json();
       setUsers(users);
     } catch (error) {
       console.log(error);
     }
-  })
+  }
   async function save() {
     try {
-      const response = await fetch(process.env.REACT_APP_URL+"users", {//ajax
+      const response = await fetch(process.env.REACT_APP_URL + "users", {//ajax
         method: process.env.REACT_APP_METHOD,
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(user)
@@ -46,7 +49,7 @@ function Userform() { //functional component
         <input type='radio' name="gender" className="radio" value='Male' onChange={updateValue} />Male
         <input type='radio' name="gender" className="radio" value='Female' onChange={updateValue} />Female
         <select name="location" onChange={updateValue}>
-          {locations.map(location =>  <option  value={location}>{location}</option>)}
+          {locations.map(location => <option value={location}>{location}</option>)}
         </select>
       </div>
       <button className='btn btn-primary' onClick={save}>Save</button>
@@ -59,11 +62,23 @@ function Userform() { //functional component
             return <tr><td>{index}. {user.firstname}</td>
               <td>{user.lastname}</td>
               <td>{user.gender}</td>
+              <td><button className="btn btn-danger" onClick={() => deleteUser(user.id)}>X</button></td>
             </tr>
           })}
         </tbody>
       </table>
     </span>
   )
+  async function deleteUser(id) {
+    try {
+      const response = await fetch(process.env.REACT_APP_URL + 'users/' + id, {
+        method: 'DELETE'
+      });
+      getUsers();
+    } catch (error) {
+
+    }
+
+  }
 }
 export default Userform;
