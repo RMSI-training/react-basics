@@ -1,3 +1,4 @@
+import axios from "axios";
 import { useState } from "react";
 import Counter from "./Counter";
 
@@ -21,8 +22,8 @@ function Userform() { //functional component
   })
   async function getUsers() {
     try {
-      const response = await fetch(process.env.REACT_APP_URL + "users");
-      const users = await response.json();
+      const response = await axios(process.env.REACT_APP_URL + "users");
+      const users = response.data;
       setUsers(users);
     } catch (error) {
       console.log(error);
@@ -30,12 +31,12 @@ function Userform() { //functional component
   }
   async function save() {
     try {
-      const response = await fetch(process.env.REACT_APP_URL + "users", {//ajax
-        method: process.env.REACT_APP_METHOD,
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(user)
-      });
-      const savedUser = await response.json();
+      const response = await axios.post(process.env.REACT_APP_URL + "users",
+        JSON.stringify(user),
+        {
+          headers: { 'Content-Type': 'application/json' }
+        });
+      const savedUser = response.data;
       setUsers([...users, savedUser]);
     } catch (error) {
       console.log(error);
@@ -46,6 +47,7 @@ function Userform() { //functional component
     <span >
       <div className="form-group">
         <input value={user.firstname} className="form-control" name='firstname' onChange={updateValue}></input>
+        <small id="emailHelp" className="form-text text-muted">First name is mandatory</small>
         <input value={user.lastname} className="form-control" name='lastname' onChange={updateValue}></input>
         <input type='radio' name="gender" className="radio" value='Male' onChange={updateValue} />Male
         <input type='radio' name="gender" className="radio" value='Female' onChange={updateValue} />Female
@@ -54,7 +56,7 @@ function Userform() { //functional component
         </select>
       </div>
       <button className='btn btn-primary' onClick={save}>Save</button>
-      <Counter count={users.length} prop2={user.firstname}/>
+      <Counter count={users.length} prop2={user.firstname} />
       <table className="table table-striped">
         <thead><th>firstname</th>
           <th>Last Name</th>
@@ -62,7 +64,7 @@ function Userform() { //functional component
         <tbody>
           {users.map((user, index) => {
             return <tr key={user.id}><td>{index}. {user.firstname}</td>
-              <td>{user.lastname}</td>
+              <td><input value={user.lastname} /></td>
               <td>{user.gender}</td>
               <td><button className="btn btn-danger" onClick={() => deleteUser(user.id)}>X</button></td>
             </tr>
