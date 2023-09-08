@@ -56,7 +56,7 @@ function Userform() { //functional component
         </select>
       </div>
       <button className='btn btn-primary' onClick={save}>Save</button>
-      <Counter count={users.length} prop2={user.firstname} />
+    
       <table className="table table-striped">
         <thead><th>firstname</th>
           <th>Last Name</th>

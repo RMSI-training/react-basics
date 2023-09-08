@@ -6,9 +6,12 @@ import reportWebVitals from './reportWebVitals';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Userform from './Userform';
 import ErrorPage from './error-page';
+import Container from './Container';
 const router = createBrowserRouter([
   {    path: "/", element: <App/>, errorElement: <ErrorPage />,  },
   {    path: "/userform", element: <Userform/>, errorElement: <ErrorPage />,  },
+  {    path: "/container", element: <Container/>, errorElement: <ErrorPage />,  },
+
 ]);
 const root = ReactDOM.createRoot(document.getElementById('root'));// React element 
 root.render(
