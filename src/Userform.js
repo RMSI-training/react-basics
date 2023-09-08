@@ -2,12 +2,8 @@ import axios from "axios";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import Counter from "./Counter";
-function action1() {
-  return {
-    type:'count',
-    value:100
-  }
-}
+import user_count from "./redux/actions";
+
 function Userform() { //functional component
   const [user, setUser] = useState({ //model =state
     firstname: 'John',
@@ -31,6 +27,7 @@ function Userform() { //functional component
       const response = await axios(process.env.REACT_APP_URL + "users");
       const users = response.data;
       setUsers(users);
+      dispatch(user_count(users.length));
     } catch (error) {
       console.log(error);
     }
@@ -43,7 +40,9 @@ function Userform() { //functional component
           headers: { 'Content-Type': 'application/json' }
         });
       const savedUser = response.data;
-      setUsers([...users, savedUser]);
+      // setUsers([...users, savedUser]);
+      getUsers();
+      dispatch(user_count(users.length));
     } catch (error) {
       console.log(error);
     }
@@ -52,7 +51,6 @@ function Userform() { //functional component
   const dispatch = useDispatch();
   return (//jsx
     <span >
-      <button onClick={()=>dispatch(action1())}> Send data to redux store</button>
       <div className="form-group">
         <input value={user.firstname} className="form-control" name='firstname' onChange={updateValue}></input>
         <small id="emailHelp" className="form-text text-muted">First name is mandatory</small>
@@ -64,7 +62,7 @@ function Userform() { //functional component
         </select>
       </div>
       <button className='btn btn-primary' onClick={save}>Save</button>
-    
+
       <table className="table table-striped">
         <thead><th>firstname</th>
           <th>Last Name</th>
