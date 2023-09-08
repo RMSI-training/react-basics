@@ -1,8 +1,10 @@
+import { useSelector } from "react-redux";
 
 
 function Counter(props) {
-    return <div>{props.count}
-    ,{props.prop2}</div>
+    const counter = useSelector((state)=> state);
+    console.log(counter);
+    return <div>{counter}</div>
 }
 
 export default Counter;

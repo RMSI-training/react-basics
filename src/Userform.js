@@ -1,7 +1,13 @@
 import axios from "axios";
 import { useState } from "react";
+import { useDispatch } from "react-redux";
 import Counter from "./Counter";
-
+function action1() {
+  return {
+    type:'count',
+    value:100
+  }
+}
 function Userform() { //functional component
   const [user, setUser] = useState({ //model =state
     firstname: 'John',
@@ -43,8 +49,10 @@ function Userform() { //functional component
     }
   }
   //logic 
+  const dispatch = useDispatch();
   return (//jsx
     <span >
+      <button onClick={()=>dispatch(action1())}> Send data to redux store</button>
       <div className="form-group">
         <input value={user.firstname} className="form-control" name='firstname' onChange={updateValue}></input>
         <small id="emailHelp" className="form-text text-muted">First name is mandatory</small>

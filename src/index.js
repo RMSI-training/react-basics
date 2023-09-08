@@ -7,20 +7,21 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Userform from './Userform';
 import ErrorPage from './error-page';
 import Container from './Container';
+import { createStore } from 'redux';
+import reducers from './redux/reducers';
+import { Provider } from 'react-redux';
 const router = createBrowserRouter([
-  {    path: "/", element: <App/>, errorElement: <ErrorPage />,  },
-  {    path: "/userform", element: <Userform/>, errorElement: <ErrorPage />,  },
-  {    path: "/container", element: <Container/>, errorElement: <ErrorPage />,  },
-
+  { path: "/", element: <App />, errorElement: <ErrorPage />, },
+  { path: "/userform", element: <Userform />, errorElement: <ErrorPage />, },
+  { path: "/container", element: <Container />, errorElement: <ErrorPage />, },
 ]);
 const root = ReactDOM.createRoot(document.getElementById('root'));// React element 
+const store1 = createStore(reducers);
 root.render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <Provider store={store1}>
+      <RouterProvider router={router} />
+    </Provider>
   </React.StrictMode>
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+//--------define redux store  --------
