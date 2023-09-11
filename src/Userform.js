@@ -2,7 +2,7 @@ import axios from "axios";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import Counter from "./Counter";
-import user_count from "./redux/actions";
+import sendSavedUser, { user_count } from "./redux/actions";
 
 function Userform() { //functional component
   const [user, setUser] = useState({ //model =state
@@ -12,7 +12,6 @@ function Userform() { //functional component
     location: 'Brisbane'
   });
   const [locations, setLocations] = useState([]);
-  const [users, setUsers] = useState([]);
   const updateValue = (event) => {
     setUser({ ...user, [event.target.name]: event.target.value });
   }
@@ -20,20 +19,12 @@ function Userform() { //functional component
     //get locations
     const response = await fetch(process.env.REACT_APP_URL + 'locations');
     setLocations(await response.json());
-    getUsers();
+    // getUsers();
   })
-  async function getUsers() {
-    try {
-      const response = await axios(process.env.REACT_APP_URL + "users");
-      const users = response.data;
-      setUsers(users);
-      dispatch(user_count(users.length));
-    } catch (error) {
-      console.log(error);
-    }
-  }
+ 
   async function save() {
     try {
+      user_count()
       const response = await axios.post(process.env.REACT_APP_URL + "users",
         JSON.stringify(user),
         {
@@ -41,8 +32,8 @@ function Userform() { //functional component
         });
       const savedUser = response.data;
       // setUsers([...users, savedUser]);
-      getUsers();
-      dispatch(user_count(users.length));
+      // getUsers();
+      dispatch(sendSavedUser(savedUser));
     } catch (error) {
       console.log(error);
     }
@@ -62,33 +53,8 @@ function Userform() { //functional component
         </select>
       </div>
       <button className='btn btn-primary' onClick={save}>Save</button>
-
-      <table className="table table-striped">
-        <thead><th>firstname</th>
-          <th>Last Name</th>
-          <th>Gender</th></thead>
-        <tbody>
-          {users.map((user, index) => {
-            return <tr key={user.id}><td>{index}. {user.firstname}</td>
-              <td><input value={user.lastname} /></td>
-              <td>{user.gender}</td>
-              <td><button className="btn btn-danger" onClick={() => deleteUser(user.id)}>X</button></td>
-            </tr>
-          })}
-        </tbody>
-      </table>
     </span>
   )
-  async function deleteUser(id) {
-    try {
-      const response = await fetch(process.env.REACT_APP_URL + 'users/' + id, {
-        method: 'DELETE'
-      });
-      getUsers();
-    } catch (error) {
-
-    }
-
-  }
+  
 }
 export default Userform;
