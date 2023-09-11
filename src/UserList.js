@@ -1,18 +1,9 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { deleteUser_action } from "./redux/actions";
 
 export default function UserList() {
+    const dispatch = useDispatch();
     const users = useSelector((reduxStoreState)=> reduxStoreState);
-    // const [users, setUsers] = useState([]);
-    // async function getUsers() {
-    //     try {
-    //         const response = await axios(process.env.REACT_APP_URL + "users");
-    //         const users = response.data;
-    //         setUsers(users);
-    //         dispatch(user_count(users.length));
-    //     } catch (error) {
-    //         console.log(error);
-    //     }
-    // }
     return (<table className="table table-striped">
         <thead><th>firstname</th>
             <th>Last Name</th>
@@ -23,17 +14,18 @@ export default function UserList() {
                 return (<tr key={user.id}><td> {user.firstname}</td>
                     <td>{user.lastname} </td>
                     <td>{user.gender}</td>
-                    <td><button className="btn btn-danger" onClick={() => deleteUser(user.id)}>X</button></td>
+                    <td><button className="btn btn-danger" onClick={() => deleteUser(user.id, index)}>X</button></td>
                 </tr>)
             })}
         </tbody>
     </table>)
 
-    async function deleteUser(id) {
+    async function deleteUser(id, index) {
         try {
             const response = await fetch(process.env.REACT_APP_URL + 'users/' + id, {
                 method: 'DELETE'
             });
+            dispatch(deleteUser_action(index));
             // getUsers();
         } catch (error) {
 

@@ -6,10 +6,16 @@ export function user_count(count) {
     }
 }
 
-function sendSavedUser(user1){
+export function deleteUser_action(index) {
     return {
-        type:"SAVE_USER",
-        user:user1
+        type: "DELETE_USER",
+        value: index
+    }
+}
+function sendSavedUser(user1) {
+    return {
+        type: "SAVE_USER",
+        user: user1
     }
 }
 export default sendSavedUser;

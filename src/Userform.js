@@ -24,7 +24,6 @@ function Userform() { //functional component
  
   async function save() {
     try {
-      user_count()
       const response = await axios.post(process.env.REACT_APP_URL + "users",
         JSON.stringify(user),
         {
