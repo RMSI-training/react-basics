@@ -3,6 +3,7 @@ import { ToastContainer } from 'react-toastify';
 import './App.css';
 import Counter from './Counter';
 import Login from './Login';
+import Register from './Register';
 import Userform from './Userform';
 // const router = createBrowserRouter([
 //   { path: "/", element: <Login />, errorElement: <ErrorPage />, },
@@ -12,11 +13,11 @@ import Userform from './Userform';
 function App() {//controller
   return (
     <div>
-      <ToastContainer position="top-center" theme="colored"></ToastContainer>
+      <ToastContainer closeOnClick position="top-center" theme="colored"></ToastContainer>
       <BrowserRouter>
         <Routes>
 
-          <Route path='/login' element={<Login />}>User Form</Route>
+          <Route path='/login' element={<Register />}>User Form</Route>
         </Routes>
 
       </BrowserRouter>

@@ -8,11 +8,13 @@ export const Login = () => {
     });
     function login(e) {
         e.preventDefault();
-        if(credentials.login === '' ){
-            toast.warning('Please enter user name');
+        if(credentials.login.trim() === '' ){
+            toast.warning('Please enter user name',{
+                closeOnClick: true
+            });
             return false;
         }
-        if(credentials.pwd === '' ){
+        if(credentials.pwd.trim() === '' ){
             toast.warning('Please enter password');
             return false;
         }
