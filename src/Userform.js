@@ -24,7 +24,7 @@ function Userform() { //functional component
  
   async function save() {
     try {
-      const response = await axios.post(process.env.REACT_APP_URL + "users",
+      const response = await axios.post(process.env.REACT_APP_URL + "customer",
         JSON.stringify(user),
         {
           headers: { 'Content-Type': 'application/json' }

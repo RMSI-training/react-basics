@@ -1,8 +1,10 @@
 import axios from "axios";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
 
 export const Login = () => {
+    const navigate = useNavigate();
     const [credentials, setCredentials] = useState({
         email: '',
         password: ''
@@ -19,11 +21,12 @@ export const Login = () => {
             toast.warning('Please enter password');
             return false;
         }
-        const response  = await axios.post('http://localhost:3001/login',credentials);
-        if (response.status ==200) {
+        try {
+            const response = await axios.post('http://localhost:3001/login', credentials);
             toast.success("login successful");
             sessionStorage.setItem('token', response.data.accessToken);
-        } else {
+            navigate('/container');
+        } catch (error) {
             toast.error("login failed");
         }
     }

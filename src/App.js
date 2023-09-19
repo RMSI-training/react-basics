@@ -17,7 +17,8 @@ function App() {//controller
       <ToastContainer closeOnClick position="top-center" theme="colored"></ToastContainer>
       <BrowserRouter>
         <Routes>
-        <Route path='/login' element={<Login />}>User Form</Route>
+          <Route path='/login' element={<Login />}>User Form</Route>
+          <Route path='/container' element={<Container />}>User Form</Route>
 
           <Route path='/register' element={<Register />}>Register</Route>
         </Routes>
