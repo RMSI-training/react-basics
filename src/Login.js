@@ -34,7 +34,7 @@ export const Login = () => {
                         <input name='pwd' value={credentials.pwd} placeholder="Password" className="form-control"></input>
                     </div>
                 </div>
-                <button type="submit" className="btn btn-success" >Login</button>
+                <button type="submit" className="btn btn-success" onClick={login}>Login</button>
             </form>
         </div>
     </div>)

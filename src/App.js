@@ -5,6 +5,7 @@ import Counter from './Counter';
 import Login from './Login';
 import Register from './Register';
 import Userform from './Userform';
+import Container from "./Container";
 // const router = createBrowserRouter([
 //   { path: "/", element: <Login />, errorElement: <ErrorPage />, },
 //   { path: "/userform", element: <component1 />, errorElement: <ErrorPage />, },
@@ -16,8 +17,9 @@ function App() {//controller
       <ToastContainer closeOnClick position="top-center" theme="colored"></ToastContainer>
       <BrowserRouter>
         <Routes>
+        <Route path='/login' element={<Login />}>User Form</Route>
 
-          <Route path='/login' element={<Register />}>User Form</Route>
+          <Route path='/register' element={<Register />}>Register</Route>
         </Routes>
 
       </BrowserRouter>
