@@ -4,13 +4,245 @@
     "Brisbane",
     "London"
   ],
-  "users": [
+  "customer": [
+    {
+      "firstname": "John",
+      "lastname": "Carter",
+      "gender": "Male",
+      "location": "Brisbane",
+      "id": 1
+    },
+    {
+      "firstname": "John",
+      "lastname": "Carter",
+      "gender": "Male",
+      "location": "Brisbane",
+      "id": 2
+    },
+    {
+      "firstname": "John",
+      "lastname": "Carter",
+      "gender": "Male",
+      "location": "Brisbane",
+      "id": 3
+    },
     {
       "firstname": "John",
       "lastname": "Carter",
       "gender": "Male",
       "location": "Brisbane",
       "id": 4
+    },
+    {
+      "firstname": "John",
+      "lastname": "Carter",
+      "gender": "Male",
+      "location": "Brisbane",
+      "id": 5
+    },
+    {
+      "firstname": "John",
+      "lastname": "Carter",
+      "gender": "Male",
+      "location": "Brisbane",
+      "id": 6
+    },
+    {
+      "firstname": "John",
+      "lastname": "Carter",
+      "gender": "Male",
+      "location": "Brisbane",
+      "id": 10
+    },
+    {
+      "firstname": "John",
+      "lastname": "Carter",
+      "gender": "Male",
+      "location": "Brisbane",
+      "id": 11
+    },
+    {
+      "firstname": "John",
+      "lastname": "Carter",
+      "gender": "Male",
+      "location": "Brisbane",
+      "id": 12
+    },
+    {
+      "firstname": "John1",
+      "lastname": "Carter",
+      "gender": "Male",
+      "location": "Brisbane",
+      "id": 13
+    },
+    {
+      "firstname": "John1",
+      "lastname": "Carter",
+      "gender": "Male",
+      "location": "Brisbane",
+      "id": 14
+    },
+    {
+      "firstname": "John1",
+      "lastname": "Carter",
+      "gender": "Male",
+      "location": "Brisbane",
+      "id": 15
+    },
+    {
+      "firstname": "John",
+      "lastname": "Carter",
+      "gender": "Male",
+      "location": "Brisbane",
+      "id": 16
+    },
+    {
+      "firstname": "John",
+      "lastname": "Carter",
+      "gender": "Male",
+      "location": "Brisbane",
+      "id": 17
+    },
+    {
+      "firstname": "John",
+      "lastname": "Carter",
+      "gender": "Male",
+      "location": "Brisbane",
+      "id": 18
+    },
+    {
+      "firstname": "pariwesh",
+      "lastname": "Carter",
+      "gender": "Male",
+      "location": "Brisbane",
+      "id": 19
+    },
+    {
+      "firstname": "pariwesh",
+      "lastname": "Carter",
+      "gender": "Male",
+      "location": "Brisbane",
+      "id": 20
+    },
+    {
+      "firstname": "pariwesh",
+      "lastname": "Carter",
+      "gender": "Male",
+      "location": "Brisbane",
+      "id": 21
+    },
+    {
+      "firstname": "pariwesh",
+      "lastname": "Carter",
+      "gender": "Male",
+      "location": "Brisbane",
+      "id": 22
+    },
+    {
+      "firstname": "pariwesh",
+      "lastname": "Carter",
+      "gender": "Male",
+      "location": "Brisbane",
+      "id": 23
+    },
+    {
+      "firstname": "pariwesh",
+      "lastname": "Carter",
+      "gender": "Male",
+      "location": "Brisbane",
+      "id": 24
+    },
+    {
+      "firstname": "pariwesh",
+      "lastname": "Carter",
+      "gender": "Male",
+      "location": "Brisbane",
+      "id": 25
+    },
+    {
+      "firstname": "pariwesh",
+      "lastname": "Carter",
+      "gender": "Male",
+      "location": "Brisbane",
+      "id": 26
+    },
+    {
+      "firstname": "John",
+      "lastname": "Carter",
+      "gender": "Male",
+      "location": "Brisbane",
+      "id": 30
+    }
+  ],
+  "users": [
+    {
+      "email": "Pariwesh1@gmail.com",
+      "password": "$2a$10$MrJCMaPzyDHs7MkIYMftwODWKZi0CXMORVuNHbyLzNazzMOZYLyu2",
+      "firstName": "Pariwesh",
+      "id": 2
+    },
+    {
+      "email": "pariweshg@gmail.com",
+      "password": "$2a$10$YFMI70y1TOMh0NkoJTkCReBU38jdaJuG3APMGBsW9BtESck.4aHn6",
+      "firstName": "Pariwesh",
+      "lastname": "Gupta",
+      "id": 3
+    },
+    {
+      "email": "p@g.com",
+      "password": "$2a$10$k5q9Fi31XJhti4xEz79id.0Vi8yOcZvmTZKuqixFe82Nwo3bbdx/G",
+      "firstName": "Pariwesh",
+      "lastname": "Gupta",
+      "id": 4
+    },
+    {
+      "email": "p@g",
+      "password": "$2a$10$59aJNcr9lBGfsKgGOQXqQedlX26cRiWaGQ/AKNEhB7IlfF5oOYzbe",
+      "firstName": "Pariwesh",
+      "lastname": "Gupta",
+      "id": 5
+    },
+    {
+      "email": "pa@gmail.com",
+      "password": "$2a$10$DnjJBuiIv1UsmOcy33JhJOOGwRAYYo6n4SV1oMno4mIgwBweHEcy6",
+      "firstName": "Pariwesh",
+      "lastname": "gupta",
+      "id": 6
+    },
+    {
+      "email": "pariweshg1@gmail.com",
+      "password": "$2a$10$c4odbWGrNUSk69Vyh2oPeuIcyuQ.YW0CERtCiMsiadYRe6gB40cu2",
+      "firstName": "Pariwesh",
+      "lastname": "Gupta",
+      "id": 7
+    },
+    {
+      "email": "pariweshg2@gmail.com",
+      "password": "$2a$10$c69FIeuy4tih5dF8bqaXsOqKFL4OB65zU1NAkpD7JefzZUABQ5paa",
+      "firstName": "Pariwesh",
+      "lastname": "Gupta",
+      "id": 8
+    },
+    {
+      "email": "pariweshg3@gmail.com",
+      "password": "$2a$10$b6xPtODe27sFFaPcdqUWf.rkPomwQsP89LAVllBK8E91eLAB5ymq2",
+      "firstName": "Pariwesh",
+      "lastname": "Gupta",
+      "id": 9
+    },
+    {
+      "email": "test@gmail.com",
+      "password": "$2a$10$iW/sqzD0EoIO7mi5Y0NTs.RVGqwnLNFjRZvcAANYP.ltjJ0w3r3HW",
+      "firstName": "Pariwesh",
+      "lastname": "Gupta",
+      "id": 10
+    },
+    {
+      "email": "pariweshg123@gmail.com",
+      "password": "$2a$10$vAke5g3AR.dNJhW5pSWJBuKEgqA2uL7jq0hek8S/MgXk8gjq9567a",
+      "firstName": "Pariwesh",
+      "lastname": "Gupta",
+      "id": 11
     }
   ]
 }

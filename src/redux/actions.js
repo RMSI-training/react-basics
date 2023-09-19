@@ -5,7 +5,12 @@ export function user_count(count) {
         value: count
     }
 }
-
+export function saveToken(token) {
+    return {
+        type: "SAVE_TOKEN",
+        value: token
+    }
+}
 export function deleteUser_action(index) {
     return {
         type: "DELETE_USER",

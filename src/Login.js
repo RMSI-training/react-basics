@@ -1,9 +1,12 @@
 import axios from "axios";
 import { useState } from "react";
+import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
+import { saveToken } from "./redux/actions";
 
 export const Login = () => {
+    const dispatch = useDispatch();
     const navigate = useNavigate();
     const [credentials, setCredentials] = useState({
         email: '',
@@ -24,7 +27,9 @@ export const Login = () => {
         try {
             const response = await axios.post('http://localhost:3001/login', credentials);
             toast.success("login successful");
-            sessionStorage.setItem('token', response.data.accessToken);
+            // sessionStorage.setItem('token', response.data.accessToken);
+            //save token in redux store??
+            dispatch(saveToken(response.data.accessToken));
             navigate('/container');
         } catch (error) {
             toast.error("login failed");

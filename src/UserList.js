@@ -3,7 +3,7 @@ import { deleteUser_action } from "./redux/actions";
 
 export default function UserList() {
     const dispatch = useDispatch();
-    const users = useSelector((reduxStoreState)=> reduxStoreState);
+    const users = useSelector((reduxStoreState)=> reduxStoreState).users;
     return (<table className="table table-striped">
         <thead><th>firstname</th>
             <th>Last Name</th>
@@ -22,7 +22,7 @@ export default function UserList() {
 
     async function deleteUser(id, index) {
         try {
-            const response = await fetch(process.env.REACT_APP_URL + 'users/' + id, {
+            const response = await fetch(process.env.REACT_APP_URL + 'customer/' + id, {
                 method: 'DELETE'
             });
             dispatch(deleteUser_action(index));
